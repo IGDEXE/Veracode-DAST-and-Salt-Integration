@@ -1,0 +1,34 @@
+{
+    "name": "Scan-API",
+    "scans": [
+      {
+        "action_type": "ADD",
+        "request_id": "0",
+        "scan_config_request": {
+            "target_url": {
+              "url": "https://www.example.com"
+            },
+          "api_scan_setting": {
+            "spec_id": "{ID_of_your_API_specification}"
+          }
+        },
+        "internal_scan_configuration": {
+          "enabled": false,
+          "endpoint_id": "",
+          "gateway_id": ""
+        }
+      }
+    ],
+    "visibility": {
+      "setup_type": "SEC_LEADS_ONLY",
+      "team_identifiers": []
+    },
+    "schedule": {
+      "now": true,
+      "duration": {
+        "length": 2,
+        "unit": "DAY"
+      },
+      "schedule_status": "ACTIVE"
+    }
+  }
