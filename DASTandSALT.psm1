@@ -48,7 +48,7 @@ function New-VeracodeTest {
     $SpecificationName = "TestDASTPowershell"
     $scanName = "TestDASTPowershell"
     $targetURL = "https://read-manager-main-api.onrender.com"
-    $filePath = "exempleSwagger.yaml"
+    $filePath = "exampleSwagger.yaml"
 
     New-VeracodeAPISpecification $SpecificationName $filePath
     New-VeracodeApiDastScan $scanName $targetURL $SpecificationName
