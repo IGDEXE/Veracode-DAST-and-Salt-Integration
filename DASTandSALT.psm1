@@ -30,11 +30,8 @@ function New-VeracodeApiDastScan {
     $configDAST.scans.scan_config_request.api_scan_setting.spec_id = $SpecificationID
     $configDAST.scans.scan_config_request.target_url.url = $targetURL
 
-    $newConfigDAST = "DAST" + (Get-Date -Format sshhmmddMM) + ".json"
-    $pathJSON = "./TEMP/$newConfigDAST"
-    $configDAST | ConvertTo-Json -depth 100 | Out-File "$pathJSON"
-
-    $apiReturn = Get-Content $pathJSON | http --auth-type=veracode_hmac POST "https://api.veracode.com/was/configservice/v1/analyses?scan_type=API_SCAN"
+    $newDAST = $configDAST | ConvertTo-Json -depth 100
+    $apiReturn = $newDAST | http --auth-type=veracode_hmac POST "https://api.veracode.com/was/configservice/v1/analyses?scan_type=API_SCAN"
     $apiReturn = $apiReturn | ConvertFrom-Json
     return $apiReturn
 }
